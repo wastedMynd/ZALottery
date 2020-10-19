@@ -1,4 +1,4 @@
-#!/home/sizwe/PycharmProjects/ZALotteryPythonProject/venv/bin/python
+#!/home/sizwe/PycharmProjects/ZALotteryPythonProject/venv/bin/python3.8
 # -*- coding: utf-8 -*-
 import re
 import sys

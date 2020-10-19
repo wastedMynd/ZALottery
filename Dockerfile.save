@@ -1,0 +1,35 @@
+# South African Lottery API Docker Image
+# Creation Date: 09 Sept 2020, 00:38
+# Author: Sizwe-se-Afrika Immaculate Mkhonza
+
+# base image, linux distro os
+FROM alpine:latest
+
+# envorment keys, for:
+# workdir, selenium, mongo_db 
+ENV APP_PATH = ./app
+RUN echo $APP_PATH
+ENV APP_SELENIUM_DRIVER_PATH = $APP_PATH/scrapper/driver/
+ENV APP_MONGO_DB_PATH = $APP_PATH/cluster/
+
+# create workdir
+RUN mkdir -p $APP_PATH
+
+# define 
+WORKDIR $APP_PATH
+
+# copy all source code resources to workdir
+COPY . .
+
+# setup requirements
+RUN apt-get install python3
+RUN /usr/local/bin/python3 -m pip install --upgrade pip
+RUN pip install -r requirements.txt
+
+# expose, the api port; 5000
+EXPOSE 5000 5000
+
+# run python
+ENTRYPOINT ["python"]
+
+CMD [ "main.py ]

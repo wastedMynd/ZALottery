@@ -3,20 +3,21 @@ import re
 import sys
 
 
-def get_docker_image_table() -> str:
-    images_table = ps.run(["sudo", "docker", "image", "ls"], capture_output=True)
-    return images_table.stdout.decode()
-
-
-def execute_docker_image_removal():
+def stop_and_start_docker_service():
     ps.run(["echo", "stopping docker service"])
     ps.run("sudo service docker stop", shell=True)
-    print()
 
     ps.run(["echo", "starting docker service"])
     ps.run(["sudo", "service", "docker", "start"])
     print()
 
+
+def get_docker_image_table() -> str:
+    images_table = ps.run(["sudo", "docker", "image", "ls"], capture_output=True)
+    return images_table.stdout.decode()
+
+
+def process_docker_image_removal():
     ps.run(["echo", "getting docker images"])
     print(docker_image_table := get_docker_image_table())
     print()
@@ -43,14 +44,13 @@ def execute_docker_image_removal():
     ps.run(["echo", "docker image removal, process is complete!"])
     print()
 
-    ps.run(["echo", "remaining docker image(s)!"])
-    print(get_docker_image_table())
-
-
 def remove_image(image):
-    ps.run(["sudo ", "docker ", "stop ", image])
-    ps.run(["sudo ", "docker ", "rmi ", "-f ", image])
+    ps.run(["sudo", "docker", "stop", image])
+    ps.run(["sudo", "docker", "rmi", "-f", image])
 
 
-if __name__ == '__main__':
-    execute_docker_image_removal()
+stop_and_start_docker_service()
+process_docker_image_removal()
+
+ps.run(["echo", "remaining docker image(s)!"])
+print(get_docker_image_table())
