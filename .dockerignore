@@ -1,0 +1,12 @@
+app.log
+Dockerfile
+docker_image_remover.py
+Jupiter Python Data Visualisation
+lottery_analysis_sample.ipynb
+Pipfile
+Pipfile.lock
+__pycache__
+README.md
+test
+venv
+Dockerfile.save

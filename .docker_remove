@@ -1,0 +1,12 @@
+REPOSITORY          TAG                   IMAGE ID            CREATED             SIZE
+lottery             latest                b739d31eaced        8 minutes ago       571MB
+<none>              <none>                7b860dfcdb20        19 minutes ago      557MB
+<none>              <none>                6aa31578e5f8        22 minutes ago      557MB
+<none>              <none>                80481ef192f5        30 minutes ago      557MB
+<none>              <none>                bb0915b6bd78        33 minutes ago      557MB
+<none>              <none>                40648c4444fc        49 minutes ago      557MB
+<none>              <none>                bb7a78302545        52 minutes ago      544MB
+<none>              <none>                856fa1445e40        54 minutes ago      544MB
+<none>              <none>                6a6858609a56        3 days ago          2.02GB
+python              latest                18f3593da4a5        5 days ago          886MB
+python              3.10.0a1-alpine3.12   6ffd9d1b57b7        11 days ago         43.1MB
